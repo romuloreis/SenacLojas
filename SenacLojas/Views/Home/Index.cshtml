@@ -1,9 +1,12 @@
 ﻿@{
-    int idade = 18;
+    int idade = 18 + 18;
+    ViewData["Idade"] = idade;
     ViewData["Title"] = "Página Inicial";
 }
 
 <div class="text-center">
     <h1 class="display-4">Seja Bem-Vindo</h1>
     <p>Frameworks para Internet 1</p>
+    <p>Luciana tem @ViewData["Idade"] anos.</p>
+    <p>E-mail: @ViewData["Email"]</p>
 </div>

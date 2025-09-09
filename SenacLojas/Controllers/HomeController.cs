@@ -15,6 +15,7 @@ namespace SenacLojas.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Email"] = "luciana.maria@gmail.com";
             return View();
         }
 
