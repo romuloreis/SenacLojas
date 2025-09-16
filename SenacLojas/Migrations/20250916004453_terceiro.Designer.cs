@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SenacLojas.Data;
 
@@ -11,9 +12,10 @@ using SenacLojas.Data;
 namespace SenacLojas.Migrations
 {
     [DbContext(typeof(SenacLojasContext))]
-    partial class SenacLojasContextModelSnapshot : ModelSnapshot
+    [Migration("20250916004453_terceiro")]
+    partial class terceiro
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
