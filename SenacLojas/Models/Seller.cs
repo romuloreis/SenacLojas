@@ -1,10 +1,14 @@
-﻿namespace SenacLojas.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SenacLojas.Models
 {
     public class Seller
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [Display(Name="E-mail")]
         public string Email { get; set; }
+        [Display(Name="Birth Date")]
         public DateTime BirthDate { get; set; }
         public double Salary { get; set; }
 

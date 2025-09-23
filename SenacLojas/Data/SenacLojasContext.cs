@@ -14,8 +14,9 @@ namespace SenacLojas.Data
         {
         }
 
-        public DbSet<SenacLojas.Models.Product> Product { get; set; } = default!;
+        public DbSet<Product> Product { get; set; } = default!;
 
-        public DbSet<SenacLojas.Models.Department>? Department { get; set; }
+        public DbSet<Department>? Department { get; set; }
+        public DbSet<Seller>? Seller { get; set; }
     }
 }
