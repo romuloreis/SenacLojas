@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SenacLojas.Data;
 using SenacLojas.Migrations;
 using SenacLojas.Models;
+using SenacLojas.Models.ViewModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
@@ -73,15 +74,52 @@ namespace SenacLojas.Controllers
         }
 
         public IActionResult Create() { 
-            return View();
+            /*Cria um objeto view model e popula a 
+             * lista de departamentos*/
+            var viewModel = new SellerFormViewModel();
+            viewModel.Departments = _context.Department.ToList();
+            return View(viewModel);
         }
 
         [HttpPost]
         public IActionResult Create(Seller seller) {
-
+            if (seller == null) { 
+                return NotFound();
+            }
+            /*seller.Department = _context.Department.First();
+            seller.DepartmentId = seller.Department.Id;*/
+            /*_context.Seller.Add(seller);*/
+            _context.Add(seller);
+            _context.SaveChanges();
             return RedirectToAction("Index");                       
         }
 
+        public IActionResult Edit(int id)
+        {
+            if (id == null) {
+                return NotFound();
+            }
+
+            var seller = _context.Seller.First(sr => sr.Id == id);
+            
+            if (seller == null)
+            {
+                return NotFound();
+            }
+
+            SellerFormViewModel viewModel = new SellerFormViewModel();
+            viewModel.Seller = seller;
+            viewModel.Departments = _context.Department.ToList();
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Seller seller) { 
+            _context.Update(seller);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
     }
 }
