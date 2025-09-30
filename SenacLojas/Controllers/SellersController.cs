@@ -20,7 +20,7 @@ namespace SenacLojas.Controllers
         {
             List<Seller> sellers = _context.Seller.ToList();
             return View(sellers);
-        }
+        } 
 
         public IActionResult Details(int? id)
         {
@@ -71,6 +71,17 @@ namespace SenacLojas.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Create() { 
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Seller seller) {
+
+            return RedirectToAction("Index");                       
+        }
+
 
     }
 }

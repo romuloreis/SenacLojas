@@ -11,7 +11,7 @@ namespace SenacLojas.Models
         [Display(Name="Birth Date")]
         public DateTime BirthDate { get; set; }
         public double Salary { get; set; }
-
+         
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
         public List<SalesRecord> Sales { get; set; } = 
