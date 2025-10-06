@@ -1,4 +1,6 @@
-﻿namespace SenacLojas.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SenacLojas.Models
 {
     public class SalesRecord
     {
@@ -7,6 +9,7 @@
         public double Price { get; set; }
         public SaleStatus Status { get; set; }
 
+        [Display(Name="Seller's Name")]
         public int SellerId { get; set; }
         public Seller Seller { get; set; }
 
